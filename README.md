@@ -1,118 +1,142 @@
 ## 이름 궁합 테스트 (React + Vite)
 
-두 사람의 이름과 성별을 입력하면 재미로 보는 궁합 점수와 코멘트를 보여주는 웹 앱입니다. Vite + React + Tailwind CSS로 제작되었으며, 정적 빌드가 가능한 프런트엔드 프로젝트입니다.
+두 사람의 이름과 성별을 입력하면 재미로 보는 궁합 점수와 코멘트를 보여주는 웹 앱입니다. Vite + React + Tailwind CSS 기반으로 쉽고 빠르게 실행/배포할 수 있습니다.
 
-> 본 서비스는 참고/엔터테인먼트용입니다. 실제와 다를 수 있습니다.
+> 참고/엔터테인먼트용 서비스입니다.
 
 ---
 
-## 주요 기능
-
-- 이름 기반 궁합 점수(0~100%) 계산 및 메시지 표시
-- 점수대별 이모지 하트 애니메이션과 컬러 변화
-- 궁합 계산 로직의 상세 요인 설명 토글 제공
-- 감성 한 줄 명언 출력
-- 반응형 UI, 커스텀 스타일 + Tailwind 유틸리티 혼합 사용
-
-## 기술 스택
-
-- 빌드 도구: Vite (^7)
-- UI 라이브러리: React (^19), React DOM (^19)
-- 스타일: Tailwind CSS (^3), PostCSS, Autoprefixer + 모듈식 CSS
-- 개발 플러그인: @vitejs/plugin-react
-
-## 프로젝트 구조
-
-```
-name-compatibility/
-├─ index.html
-├─ package.json
-├─ postcss.config.js
-├─ tailwind.config.js
-├─ vite.config.js
-├─ public/
-│  └─ vite.svg
-└─ src/
-	 ├─ App.jsx
-	 ├─ main.jsx
-	 ├─ style.css                  # Tailwind 지시어 및 전역 스타일 import
-	 ├─ components/
-	 │  ├─ NameForm.jsx            # 입력 폼(이름/성별)
-	 │  ├─ ResultDisplay.jsx       # 점수/메시지/하트 애니메이션
-	 │  ├─ QuoteDisplay.jsx        # 한 줄 명언
-	 │  └─ CompatibilityExplanation.jsx  # 상세 요인 설명 토글
-	 └─ styles/
-			├─ app.css
-			├─ common.css
-			├─ nameForm.css
-			├─ resultDisplay.css
-			├─ quoteDisplay.css
-			└─ compatibilityExplanation.css
-```
-
 ## 빠른 시작
 
-사전 요구 사항
-
-- Node.js 18 이상 권장
-
-설치 및 실행 (Windows cmd)
+사전 요구: Node.js 18+
 
 ```cmd
 npm install
 npm run dev
 ```
 
-기본 개발 서버는 `http://localhost:3000`에서 실행됩니다. 포트는 `vite.config.js`의 `server.port`로 설정되어 있습니다.
-
-프로덕션 빌드/미리보기
+프로덕션:
 
 ```cmd
 npm run build
 npm run preview
 ```
 
-`dist/` 폴더가 생성되며 정적 호스팅(예: Netlify, Vercel, GitHub Pages)에 배포할 수 있습니다.
+---
 
-## 동작 원리 요약
+## 주요 기능
 
-핵심 로직은 `src/App.jsx`에 있으며, 아래 요인들을 조합하여 궁합 점수를 산출합니다.
+- 이름 기반 궁합(0~100%) + 메시지/명언 표시
+- “궁합 계산 방식 보기” 토글 + 애니메이션 전개
+- 반응형 UI, Tailwind + 모듈식 CSS
 
-- 이름 정제: 한글/영문만 남기고 공백·특수문자 제거
-- 이름 값 계산:
-  - 한글: 초성/중성/종성 분해 후 가중치 합산
-  - 영문: 알파벳 순서 기반 가중치 합산
-- 성별 조합: 이성 조합일 때 가중치 증가
-- 길이 유사도: 이름 길이 차이가 적을수록 가산
-- 첫 글자 일치: 일치 시 소폭 가산
-- 공통 문자 수: 공통 글자가 많을수록 가산
-- (한글) 발음 패턴 유사도: 유사 시 소폭 가산
+---
 
-최종 점수는 0~100 범위로 정규화 후, 점수대별 메시지(`getCompatibilityMessage`)와 명언(`getCompatibilityQuote`)을 매칭합니다. 계산 근거는 `CompatibilityExplanation` 토글에서 시각적으로 확인할 수 있습니다.
+## 폴더 구조(요약)
 
-## 커스터마이징 포인트
+```
+src/
+  App.jsx
+  main.jsx
+  style.css
+  components/
+    NameForm.jsx
+    ResultDisplay.jsx
+    QuoteDisplay.jsx
+    CompatibilityExplanation.jsx
+  styles/
+    *.css
+```
 
-- 포트 변경: `vite.config.js`의 `server.port`
-- 테마/컬러: `tailwind.config.js`의 `theme.extend.colors`와 `src/styles/*.css`
-- 폰트: `index.html`의 Google Fonts(`Noto Sans KR`) 링크
-- 점수 로직/메시지: `src/App.jsx`의 `calculateCompatibilityDetails`, `getCompatibilityMessage`, `getCompatibilityQuote`
+---
 
-## 주의 사항
+## 커스터마이징
 
-- `index.html`에는 F12/우클릭/Ctrl+U 방지 스크립트가 포함되어 있습니다. 이는 단순 억제용이며 보안 기능은 아닙니다. 필요 시 제거해도 앱 동작에는 영향이 없습니다.
-- 본 앱은 오락용으로 설계되었습니다. 실제 성향·상황과는 무관합니다.
+- 포트: `vite.config.js` → `server.port`
+- 색/테마: `tailwind.config.js`, `src/styles/*.css`
+- 폰트: `src/styles/fonts.css`(로컬 폰트 등록), 섹션별 적용은 각 CSS에 지정
+
+---
+
+## 폰트 및 라이선스(간략)
+
+로컬 폰트는 `src/font/`에 있으며, 각 폰트의 라이선스를 준수해야 합니다.
+
+- CookieRun (CookieRun Regular.ttf)
+
+  - 변경하지 않음(기존 안내 유지)
+
+- 배달의민족 주아체 (BMJUA_ttf.ttf)
+
+  - 변경하지 않음(기존 안내 유지)
+
+- 학교안심 둥근미소체 (Hakgyoansim Dunggeunmiso TTF R.ttf)
+
+  - 공식: 한국교육학술정보원(KERIS) 학교안심 글꼴 다운로드
+  - 링크: https://copyright.keris.or.kr/wft/fntDwnldView?fntGrpId=GFT202408200000000000003
+  - 안내: 공식 배포 페이지의 사용 조건을 따르세요.
+
+- 이서윤체 (이서윤체.ttf)
+
+  - 안내(사용자 제공 요약): 개인/기업 포함 모든 사용자에게 무료 제공, 온·오프라인/상품/광고 등 상업적 사용 가능. 단, 유료 판매 금지, 임의 수정·개작 후 재배포 금지, 배포된 형태 그대로 사용.
+
+- 오뮤 다예쁨체 (omyu.ttf)
+  - 첨부 이미지 기준 요지:
+    - 개인/기업 포함 모든 사용자 무료, 상업적 이용 가능
+    - 재판매·재배포·수정 불가, 배포된 형태 그대로 사용
+    - 인쇄물/웹/영상/포장/임베딩/BI·CI 등 상업 제작물 사용 가능
+    - 프로모션 예시 활용 가능(원치 않으면 업체에 요청)
+  - 자세한 조건은 배포처 고지를 따르세요.
+
+> 주의: 일부 글꼴은 재배포 금지 조항이 있습니다. 필요 시 리포지토리에서 폰트 파일을 제외하고 설치 안내나 CDN을 사용하세요. 고지 의무가 있으면 페이지 하단 또는 NOTICE 파일로 명시하세요.
+
+---
 
 ## NPM 스크립트
 
-- `npm run dev`: 개발 서버 실행 (기본 포트 3000)
-- `npm run build`: 프로덕션 번들 빌드
-- `npm run preview`: 빌드 결과 미리보기 서버 실행
+- `dev` 개발 서버
+- `build` 프로덕션 빌드
+- `preview` 빌드 미리보기
 
-## 배포 팁
-
-- 정적 호스팅: `dist/`를 그대로 업로드 (Netlify/Vercel/Cloudflare Pages 등)
-- GitHub Pages: 빌드 아티팩트(`dist/`)를 Pages 소스로 설정하거나, Actions 워크플로를 사용해 자동 배포 구성
+---
 
 ## 라이선스
 
-이 저장소에는 별도의 라이선스 파일이 없습니다. 공개 배포/재사용 정책이 필요하다면 `LICENSE` 파일을 추가해 주세요.
+저장소 라이선스는 별도 지정되지 않았습니다. 필요 시 `LICENSE` 추가 바랍니다.
+
+---
+
+## 폰트 라이선스 상세 링크
+
+프로젝트에 포함된 폰트의 출처/라이선스 정보입니다. 반드시 ‘공식 원문’을 기준으로 사용 범위를 확인하세요.
+
+- CookieRun Typeface (CookieRun Regular.ttf)
+
+  - 제공/저작권: Devsisters Corp. © 2019 Devsisters Corp.
+  - 공식 사이트: https://www.cookierunfont.com/
+  - 요약: 모든 사용자에게 무료 제공 및 자유 사용 가능. 단, 게임 산업군에 한해 상업·비상업 사용 모두 금지. 세부 조건은 사이트 내 가이드 참고. 문의: font@devsisters.com
+
+- 배달의민족 주아체 (BMJUA_ttf.ttf)
+
+  - 제공/저작권: (주)우아한형제들
+  - 공식 페이지: https://www.woowahan.com/fonts (라이선스: https://www.woowahan.com/fonts/license)
+  - 요약: 배민 글꼴 라이선스 정책에 따라 무료 사용 가능(상업/비상업 포함). 재배포/수정 등 세부 조건은 라이선스 페이지 확인 필수.
+
+- 학교안심 둥근미소체 (Hakgyoansim Dunggeunmiso TTF R.ttf)
+
+  - 공식 배포/라이선스: https://copyright.keris.or.kr/wft/fntDwnldView?fntGrpId=GFT202408200000000000003
+  - 비고: 공개 배포처에서 상업적 이용 가능으로 소개된 사례가 있으나, 반드시 공식 원문으로 최종 확인 필요.
+
+- 오뮤 다예쁨체 (omyu.ttf)
+
+  - 공식 배포/라이선스: https://omyudiary.com/product/%EC%98%A4%EB%AE%A4-%EB%8B%A4%EC%98%88%EC%81%A8%EC%B2%B4/73/
+  - 비고: 배포처에 따라 허용 범위가 다를 수 있어 원문 확인 필요.
+
+- 이서윤체 (이서윤체.ttf)
+  - 공식 배포/라이선스: https://noonnu.cc/font_page/872
+  - 비고: 상업적 이용, 2차 배포, 고지 의무 등 조건은 반드시 공식 원문 기준으로 준수.
+
+권장 사항
+
+- 재배포 금지 조항이 있는 폰트는 리포지토리에 파일을 포함하지 말고, 설치 안내 또는 CDN 방식으로 대체하세요.
+- 저작권(고지) 의무가 있는 라이선스는 사이트 하단 또는 `NOTICE.md`/`ATTRIBUTION` 파일로 명시하세요.
