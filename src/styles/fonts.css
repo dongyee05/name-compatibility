@@ -1,0 +1,40 @@
+/* Local webfont declarations */
+@font-face {
+  font-family: "CookieRun";
+  src: url("../font/CookieRun Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BMJUA";
+  src: url("../font/BMJUA_ttf.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dunggeunmiso";
+  src: url("../font/Hakgyoansim Dunggeunmiso TTF R.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Omyu";
+  src: url("../font/omyu.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeeSeoyun";
+  src: url("../font/이서윤체.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

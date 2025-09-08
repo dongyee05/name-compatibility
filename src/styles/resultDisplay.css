@@ -11,6 +11,7 @@
 }
 
 .result-score {
+  font-family: "Omyu", "CookieRun", "Noto Sans KR", sans-serif; /* 점수는 Omyu */
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 2rem;

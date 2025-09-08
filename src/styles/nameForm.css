@@ -28,6 +28,7 @@
 }
 
 .form-label {
+  font-family: "Dunggeunmiso", "CookieRun", "Noto Sans KR", sans-serif; /* 폼 라벨은 둥근미소 */
   display: block;
   font-size: 1.25rem;
   line-height: 1.75rem;

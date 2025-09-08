@@ -14,6 +14,7 @@
 }
 
 .quote-text {
+  font-family: "LeeSeoyun", "CookieRun", "Noto Sans KR", sans-serif; /* 명언은 이서윤체 */
   color: #d1d5db;
   font-size: 1.25rem;
   line-height: 1.75;
