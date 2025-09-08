@@ -1,0 +1,62 @@
+/* 결과 표시 관련 스타일 */
+.result-container {
+  text-align: center;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.heart-animation {
+  font-size: 6rem;
+}
+
+.result-score {
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 5rem; /* 8rem에서 5rem으로 수정 */
+}
+
+.score-color-high {
+  color: #ec4899;
+}
+
+.score-color-good {
+  color: #8b5cf6;
+}
+
+.score-color-medium {
+  color: #3b82f6;
+}
+
+.score-color-low {
+  color: #eab308;
+}
+
+.score-color-poor {
+  color: #6b7280;
+}
+
+.result-message {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 2.5rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reset-button {
+  padding: 0.75rem 2rem;
+  background: rgba(229, 231, 235, 1);
+  color: rgba(55, 65, 81, 1);
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  transition: background-color 0.2s;
+}
+
+.reset-button:hover {
+  background-color: #d1d5db;
+}

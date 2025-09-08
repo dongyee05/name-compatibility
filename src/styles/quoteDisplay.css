@@ -1,0 +1,26 @@
+/* 명언 표시 스타일 */
+.quote-container {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  border-left-width: 4px;
+  border-left-color: var(--love-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+  border-radius: 0.5rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quote-text {
+  color: #d1d5db;
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .quote-text {
+    font-size: 1.5rem;
+  }
+}

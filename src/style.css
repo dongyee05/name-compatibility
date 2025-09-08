@@ -1,0 +1,208 @@
+/* 외부 스타일 파일 가져오기 */
+@import "./styles/common.css";
+@import "./styles/app.css";
+@import "./styles/nameForm.css";
+@import "./styles/resultDisplay.css";
+@import "./styles/quoteDisplay.css";
+@import "./styles/compatibilityExplanation.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 기본 스타일 */
+:root {
+  font-family: "Noto Sans KR", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a:hover {
+  color: #535bf2;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #111827, var(--love-dark));
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+/* 커스텀 컴포넌트 스타일 */
+@layer components {
+  .heart-float {
+    @apply animate-float text-6xl text-love-primary;
+  }
+
+  .love-gradient {
+    @apply bg-gradient-to-r from-love-primary to-love-secondary;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-love-tertiary focus:ring focus:ring-love-tertiary focus:ring-opacity-20 focus:outline-none transition duration-200;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-love-primary text-white rounded-full hover:bg-love-tertiary transition duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition duration-200;
+  }
+}
+
+input[type="text"] {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  width: 100%;
+}
+
+.gender-select {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.gender-option {
+  padding: 0.4em 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.gender-option.selected {
+  border-color: #646cff;
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+.male {
+  color: #64a9ff;
+}
+
+.female {
+  color: #ff64a9;
+}
+
+.result-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.result-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.compatibility-score {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  color: #ff64a9;
+}
+
+.compatibility-message {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.heart-animation {
+  font-size: 2.6rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

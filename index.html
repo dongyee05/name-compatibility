@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>이름 궁합 테스트</title>
+    <script>
+      // F12키와 Ctrl+U 단축키 비활성화
+      document.addEventListener("keydown", function (event) {
+        // F12키 방지
+        if (event.keyCode === 123) {
+          alert("해당 단축키는 사용할 수 없습니다.");
+          event.preventDefault();
+          return false;
+        }
+
+        // Ctrl+U 방지
+        if (event.ctrlKey && event.key === "u") {
+          alert("해당 단축키는 사용할 수 없습니다.");
+          event.preventDefault();
+          return false;
+        }
+      });
+
+      // 마우스 우클릭 방지
+      document.addEventListener("contextmenu", function (event) {
+        alert("해당 기능은 사용할 수 없습니다.");
+        event.preventDefault();
+        return false;
+      });
+    </script>
+  </head>
+  <body class="bg-gray-900">
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

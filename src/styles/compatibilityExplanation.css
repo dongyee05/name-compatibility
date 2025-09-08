@@ -1,0 +1,105 @@
+/* 궁합 설명 관련 스타일 */
+.explanation-container {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+}
+
+.explanation-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  transition: background-color 0.2s;
+}
+
+.explanation-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-text {
+  font-weight: 500;
+}
+
+.toggle-icon {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.explanation-details {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.explanation-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .explanation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .explanation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.factor-card {
+  padding: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.factor-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.factor-title {
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--love-tertiary);
+}
+
+.factor-description {
+  margin-bottom: 0.25rem;
+}
+
+.factor-value {
+  margin-bottom: 0.5rem;
+}
+
+.factor-value-number {
+  font-weight: 600;
+}
+
+.factor-note {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+.explanation-summary {
+  text-align: center;
+  padding-top: 0.5rem;
+  color: #9ca3af;
+}

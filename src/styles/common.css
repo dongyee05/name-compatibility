@@ -1,0 +1,72 @@
+/* 버튼 및 입력 필드 관련 공통 스타일 */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--love-tertiary);
+  box-shadow: 0 0 0 3px rgba(159, 122, 234, 0.2);
+  outline: none;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background: var(--love-primary);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--love-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: rgba(229, 231, 235, 1);
+  color: rgba(55, 65, 81, 1);
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(209, 213, 219, 1);
+}
+
+/* 애니메이션 관련 스타일 */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 사용자 정의 컬러 */
+:root {
+  --love-primary: #ff64a9;
+  --love-secondary: #64a9ff;
+  --love-tertiary: #9f7aea;
+  --love-light: #fde2e2;
+  --love-dark: #4a2640;
+}
