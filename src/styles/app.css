@@ -63,6 +63,7 @@
   .app-title {
     font-size: 3rem; /* 데스크톱에서 과도한 크기 완화 */
     line-height: 1.1;
+    padding: 5px;
   }
 }
 
